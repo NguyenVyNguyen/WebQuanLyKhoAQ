@@ -1,0 +1,622 @@
+/* -------------------------- THIẾT LẬP CHUNG --------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    --sidebar-bg-color: #2c3e50;
+    --sidebar-hover-color: #34495e;
+    --link-color: #ecf0f1;
+    --title-color: #7f8c8d;
+    --text-shadow-color: rgba(0, 0, 0, 0.3);
+    --maincolor: #58257B;
+    --subcolor: #A083B4;
+    --primary-blue: #007bff;
+    --dark-blue: #0056b3;
+    --success-green: #28a745;
+    --success-dark-green: #218838;
+    --danger-red: #dc3545;
+    --danger-dark-red: #c82333;
+    --table-header-bg: #f2f2f2;
+    --body-bg: #f4f6f9;
+    --light-bg: #fff;
+    --text-color: #333;
+    --border-color: #ddd;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+body {
+    background: var(--body-bg);
+    color: var(--text-color);
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+/* -------------------------- THANH BÊN (SIDEBAR) --------------------------- */
+.admin-content-left {
+    width: 260px;
+    height: 100vh;
+    background: var(--sidebar-bg-color);
+    padding-top: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    color: var(--link-color);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.admin-content-left .header-top-left {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.admin-content-left .header-top-left p {
+    color: var(--link-color);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px var(--text-shadow-color);
+}
+
+.admin-content-left .header-top-left a {
+    text-decoration: none;
+}
+
+.admin-content-left ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.admin-content-left ul li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 22px;
+    text-decoration: none;
+    color: var(--link-color);
+    font-size: 18px;
+    transition: all var(--transition-speed) ease;
+    border-radius: 8px;
+    margin: 5px 10px;
+}
+
+.admin-content-left ul li a i {
+    margin-right: 15px;
+    font-size: 20px;
+    width: 25px;
+    text-align: center;
+}
+
+.admin-content-left ul li a:hover {
+    background: var(--sidebar-hover-color);
+    transform: translateX(5px);
+}
+
+.admin-content-left .menu-title {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 25px 20px 10px;
+    color: var(--title-color);
+}
+
+.admin-content-left ul li ul {
+    display: none;
+    padding: 0 0 0 20px;
+}
+
+.admin-content-left ul li:hover > ul {
+    display: block;
+}
+
+.admin-content-left ul li ul li a {
+    padding: 10px 22px;
+    font-size: 16px;
+    background: transparent;
+    margin: 0;
+    border-left: 3px solid transparent;
+}
+
+.admin-content-left ul li ul li a:hover {
+    background: var(--sidebar-hover-color);
+    transform: none;
+    border-left-color: #3498db;
+}
+
+.admin-content-left ul li a.active {
+    background-color: var(--sidebar-hover-color);
+    border-left: 3px solid #3498db;
+}
+
+/* -------------------------- NỘI DUNG CHÍNH (CONTENT) --------------------------- */
+.admin-content-right {
+    margin-left: 260px;
+    padding: 20px;
+    min-height: 100vh;
+    background: #f9f9f9;
+}
+
+.admin-form-container, .login-container, .container {
+    background-color: var(--light-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    max-width: 90%;
+    margin: 20px auto;
+}
+
+.login-container {
+    max-width: 350px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+/* ---------------------------------- THIẾT KẾ KHU VỰC THÊM NỘI DUNG ---------------------------------- */
+
+.admin-add-content {
+    background-color: var(--light-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    max-width: 60%;
+    margin: 40px auto;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.admin-add-content h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+.admin-add-content h3 {
+    font-size: 20px;
+    font-weight: bỏld;
+    color: var(--text-color);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+    border-left: 2px solid var(--primary-blue);
+    padding-left: 10px;
+}
+
+.admin-add-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-add-content label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+}
+
+.admin-add-content label span {
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+.admin-add-content input[type="text"],
+.admin-add-content input[type="email"],
+.admin-add-content input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.admin-add-content input[type="text"]:focus,
+.admin-add-content input[type="email"]:focus,
+.admin-add-content input[type="password"]:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.admin-btn {
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: var(--success-green);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.admin-btn:hover {
+    background-color: var(--success-dark-green);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* -------------------------- BẢNG BIỂU --------------------------- */
+.table-content {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.a-table, .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: var(--light-bg);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.a-table th, .product-table th {
+    background-color: var(--table-header-bg);
+    padding: 12px 15px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #666;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.a-table td, .product-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #666;
+    font-size: 14px;
+    text-align: center;
+}
+
+.a-table tr:hover, .product-table tr:hover {
+    background: #f9f9ff;
+}
+
+.product-table tr:last-child td {
+    border-bottom: none;
+}
+
+.product-table input[type="number"] {
+    width: 80px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* -------------------------- THANH TÌM KIẾM & PHÂN TRANG --------------------------- */
+.search-container {
+    margin-bottom: 20px;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 250px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.search-container input[type="text"]:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+.search-container button {
+    padding: 8px 15px;
+    border: none;
+    background-color: var(--primary-blue);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+    transition: all 0.2s ease;
+}
+
+.search-container button:hover {
+    background-color: var(--dark-blue);
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0 4px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.2s ease;
+}
+
+.pagination a.active, .pagination .current-page {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+.pagination a:hover:not(.active) {
+    background-color: var(--table-header-bg);
+    border-color: #ccc;
+}
+
+.pagination a.disabled {
+    color: #aaa;
+    pointer-events: none;
+    cursor: default;
+    background-color: #f9f9f9;
+}
+
+/* -------------------------- FORM THÊM/SỬA --------------------------- */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, select:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+.order-info {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+.order-info p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+/* ---------------------------------- THIẾT KẾ CHO BIẾN THỂ (VARIANTS) ---------------------------------- */
+#variants-container {
+    margin-top: 20px;
+}
+
+.variant-group {
+    border: 1px dashed var(--subcolor);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    background-color: #f9f9fc;
+    position: relative;
+}
+
+.variant-group .remove-color-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--danger-red);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+}
+
+.variant-group .remove-color-btn:hover {
+    background-color: var(--danger-dark-red);
+}
+
+.color-item {
+    margin-bottom: 20px;
+}
+
+.size-container {
+    margin-top: 15px;
+}
+
+.size-item {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 2fr auto;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.size-item label {
+    flex-shrink: 0;
+}
+
+.size-item input {
+    flex-grow: 1;
+}
+
+.size-item .remove-size-btn {
+    background-color: var(--danger-red);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+    height: fit-content;
+    align-self: flex-end; 
+}
+
+.size-item .remove-size-btn:hover {
+    background-color: var(--danger-dark-red);
+}
+
+/* -------------------------- NÚT CHUNG & RIÊNG --------------------------- */
+.btn-login, .btn-submit, .btn-update, .back-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: var(--primary-blue);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    text-align: center;
+}
+.btn-login:hover, .btn-submit:hover, .btn-update:hover {
+    background-color: var(--dark-blue);
+}
+.back-button {
+    width: auto;
+    background-color: #6c757d;
+}
+.back-button:hover {
+    background-color: #5a6268;
+}
+
+.a-table a, .product-table a,
+.add-btn, #add-color-btn, .add-size-btn,
+.remove-color-btn, .remove-size-btn {
+    padding: 8px 15px;
+    border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.a-table a[href*="edit"], .product-table a[href*="chitiet"] {
+    background: var(--primary-blue);
+}
+.a-table a[href*="delete"],.product-table a[href*="delete"] {
+    background: var(--danger-red);
+}
+.a-table a[href*="them"] {
+    background: var(--success-green);
+}
+.add-btn, #add-color-btn, .add-size-btn {
+    background-color: var(--success-green);
+    margin-top: 10px;
+}
+.add-btn:hover, #add-color-btn:hover, .add-size-btn:hover {
+    background-color: var(--success-dark-green);
+}
+.remove-color-btn, .remove-size-btn {
+    background-color: var(--danger-red);
+    font-size: 12px;
+    float: right;
+    margin-left: 5px;
+}
+.remove-color-btn:hover, .remove-size-btn:hover {
+    background-color: var(--danger-dark-red);
+}
+
+/* -------------------------- PHẦN ĐẶC THÙ --------------------------- */
+.actions-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.variant-group {
+    border: 1px dashed var(--primary-blue);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.color-item {
+    margin-bottom: 15px;
+}
+
+.size-item {
+    margin-left: 20px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.variant-row {
+    background-color: #fefefe;
+}
+
+.total-amount {
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
