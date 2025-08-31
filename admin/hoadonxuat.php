@@ -54,8 +54,24 @@ $all_hoadonxuat = $hoadonxuat->get_all_donhang($start_from, $records_per_page, $
                         <tr>
                             <td><?php echo htmlspecialchars($row['hoadonxuat_id']); ?></td>
                             <td><?php echo htmlspecialchars($row['ngayxuat']); ?></td>
-                            <td><?php echo htmlspecialchars($row['khachhang_ten']); ?></td>
-                            <td><?php echo htmlspecialchars($row['nhanvien_ten']); ?></td>
+                            <td>
+                            <?php
+                                if ($row['khachhang_ten'] === null) {
+                                    echo "Khách hàng đã xóa";
+                                } else {
+                                    echo htmlspecialchars($row['khachhang_ten']);
+                                }
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                if ($row['nhanvien_ten'] === null) {
+                                    echo "Nhân viên đã xóa";
+                                } else {
+                                    echo htmlspecialchars($row['nhanvien_ten']);
+                                }
+                                ?>
+                            </td>
                             <td><?php echo number_format($row['tongtien'], 0, ',', '.') ?> VNĐ</td>
                             <td>
                                 <a href="hoadonchitiet.php?hoadonxuat_id=<?php echo htmlspecialchars($row['hoadonxuat_id']); ?>">Xem</a> | 

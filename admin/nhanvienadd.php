@@ -5,6 +5,8 @@ include "class/nhanvien_class.php";
 
 $nhanvien = new nhanvien;
 
+$result = null;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username   = $_POST['username'];
     $password   = $_POST['password'];
@@ -14,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email      = $_POST['nhanvien_email'];
     $diachi     = $_POST['nhanvien_diachi'];
 
-    $insert_nhanvien = $nhanvien->insert_nhanvien(
+    $result = $nhanvien->insert_nhanvien(
         $username,
         $password,
         $role,
@@ -23,7 +25,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email,
         $diachi
     );
+    if ($result === "Tài khoản đã tồn tại, vui lòng chọn username khác!") {
+        echo '<script>alert("Tài khoản đã tồn tại, vui lòng chọn username khác!"); window.location.href="nhanvienadd.php";</script>';
+    } else if ($result === true) {
+        echo '<script>alert("Thêm nhân viên thành công!"); window.location.href="nhanvienlist.php";</script>';
+    } else {
+        echo '<script>alert("Đã xảy ra lỗi khi thêm nhân viên!"); window.location.href="nhanvienadd.php";</script>';
+    }
 }
+
 ?>
 <div class="admin-content-right">
     <div class="admin-add-content">

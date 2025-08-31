@@ -28,7 +28,6 @@ class NhanVien {
                      VALUES 
                         ('$account_id', '$ten', '$dienthoai', '$email', '$diachi', '$isactive')";
         $result = $this->db->insert($query_nv);
-        header('Location:nhanvienlist.php');
         return $result;
     } else {
         return false;

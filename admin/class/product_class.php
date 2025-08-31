@@ -27,6 +27,15 @@ class product {
         return $this->db->select($query);
     }
 
+    public function check_product_code($sanpham_ma) {
+        $query = "SELECT * FROM tbl_sanpham WHERE sanpham_ma = '$sanpham_ma'";
+        $result = $this->db->select($query);
+        if ($result) {
+            return true;
+        }
+        return false;
+    }
+    
     public function insert_product($post_data) {
         $product_data = [
             'sanpham_ma'     => $post_data['sanpham_ma'],

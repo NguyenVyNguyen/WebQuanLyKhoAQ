@@ -224,10 +224,10 @@ class Hoadonxuat {
     {
         $search_query = $this->db->link->real_escape_string($search_query);
         $query = "SELECT tbl_hoadonxuat.*, tbl_khachhang.khachhang_ten, tbl_nhanvien.nhanvien_ten, SUM(tbl_chitiethoadonxuat.thanhtien) AS tongtien
-                FROM tbl_hoadonxuat
-                INNER JOIN tbl_khachhang ON tbl_hoadonxuat.khachhang_id = tbl_khachhang.khachhang_id
-                INNER JOIN tbl_nhanvien ON tbl_hoadonxuat.nhanvien_id = tbl_nhanvien.nhanvien_id 
-                LEFT JOIN tbl_chitiethoadonxuat ON tbl_hoadonxuat.hoadonxuat_id = tbl_chitiethoadonxuat.hoadonxuat_id";
+                    FROM tbl_hoadonxuat
+                    LEFT JOIN tbl_khachhang ON tbl_hoadonxuat.khachhang_id = tbl_khachhang.khachhang_id
+                    LEFT JOIN tbl_nhanvien ON tbl_hoadonxuat.nhanvien_id = tbl_nhanvien.nhanvien_id 
+                    LEFT JOIN tbl_chitiethoadonxuat ON tbl_hoadonxuat.hoadonxuat_id = tbl_chitiethoadonxuat.hoadonxuat_id";
                 
         if (!empty($search_query)) {
             $query .= " WHERE tbl_hoadonxuat.hoadonxuat_id LIKE '%$search_query%'
@@ -247,10 +247,10 @@ class Hoadonxuat {
     public function get_all_donhang_count($search_query)
     {
         $search_query = $this->db->link->real_escape_string($search_query);
-        $query = "SELECT COUNT(*) as total
-                FROM tbl_hoadonxuat
-                INNER JOIN tbl_khachhang ON tbl_hoadonxuat.khachhang_id = tbl_khachhang.khachhang_id
-                INNER JOIN tbl_nhanvien ON tbl_hoadonxuat.nhanvien_id = tbl_nhanvien.nhanvien_id";
+        $query = "SELECT COUNT(DISTINCT tbl_hoadonxuat.hoadonxuat_id) as total
+                    FROM tbl_hoadonxuat
+                    LEFT JOIN tbl_khachhang ON tbl_hoadonxuat.khachhang_id = tbl_khachhang.khachhang_id
+                    LEFT JOIN tbl_nhanvien ON tbl_hoadonxuat.nhanvien_id = tbl_nhanvien.nhanvien_id";
 
         if (!empty($search_query)) {
             $query .= " WHERE tbl_hoadonxuat.hoadonxuat_id LIKE '%$search_query%'
